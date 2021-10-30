@@ -16,9 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::middleware('auth:api')->group(function() {
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
 
-Route::apiResource('/petitions', PetitionController::class);
-Route::apiResource('/authors', AuthorController::class)->only(['index', 'show']);
+    Route::apiResource('/petitions', PetitionController::class);
+    Route::apiResource('/authors', AuthorController::class)->only(['index', 'show']);
+});

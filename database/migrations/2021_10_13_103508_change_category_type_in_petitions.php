@@ -25,7 +25,7 @@ class ChangeCategoryTypeInPetitions extends Migration
      */
     public function down()
     {
-        Schema::table('petitions', function (Blueprint $table) {
+        Schema::table('petitions', function () {
             //
         });
     }
